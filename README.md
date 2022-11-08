@@ -11,8 +11,6 @@
 
 [Lunar Vim Config](https://github.com/ItzNesbroDev/dotfiles/tree/main/.config/lvim)
 
----
-
 # Fish Shell Setup
 
 - [Fish Shell](https://fishshell.com/)
@@ -23,5 +21,7 @@
 - [Ghq](https://github.com/2nthony/ghq) - Local Git repository organizer
 - [Peco](https://github.com/peco/peco) - Interactive filtering
 
-# 🔫 Inspiration Configs
-
+# 🔫 Inspired Configs
+- [craftzdog/dotfiles-public](https://github.com/craftzdog/dotfiles-public)
+- [2nthony/dotfiles](https://github.com/2nthony/dotfiles)
+- [ChristianChiarulli/nvim](https://github.com/ChristianChiarulli/nvim/)
