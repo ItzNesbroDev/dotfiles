@@ -3,7 +3,7 @@
 
 ---
 
-# Neovim Config
+# Neovim Config (ARCHIVED)
 
 [Neovim Config](https://github.com/ItzNesbroDev/dotfiles/tree/main/.config/nvim)
 
