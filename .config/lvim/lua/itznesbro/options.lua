@@ -1,0 +1,34 @@
+lvim.colorscheme = "catppuccin"
+lvim.log.level = "warn"
+lvim.builtin.alpha.active = true
+lvim.builtin.illuminate.active = false
+lvim.builtin.bufferline.active = false
+lvim.builtin.alpha.mode = "dashboard"
+lvim.builtin.terminal.active = true
+lvim.builtin.nvimtree.setup.view.side = "left"
+lvim.builtin.nvimtree.setup.renderer.icons.show.git = false
+lvim.builtin.breadcrumbs.active = true
+lvim.builtin.treesitter.highlight.enabled = true
+lvim.builtin.dap.active = true
+lvim.builtin.cmp.cmdline.enable = false
+lvim.builtin.cmp.window.documentation = false
+lvim.builtin.cmp.window.completion = {
+  border = "rounded",
+  winhighlight = "NormalFloat:Pmenu,NormalFloat:Pmenu,CursorLine:PmenuSel,Search:None",
+}
+lvim.builtin.cmp.formatting.source_names = {
+  nvim_lsp = "",
+  emoji = "",
+  path = "",
+  calc = "",
+  vsnip = "",
+  luasnip = "",
+  buffer = "",
+  tmux = "",
+  copilot = "",
+  treesitter = "",
+}
+-- vim.g.netrw_browse_split = 0
+-- vim.g.netrw_banner = 0
+-- vim.g.netrw_winsize = 25
+vim.opt.showtabline = 0
