@@ -3,13 +3,9 @@
 
 ---
 
-# Neovim Config (ARCHIVED)
+# Neovim Config
 
 [Neovim Config](https://github.com/ItzNesbroDev/dotfiles/tree/main/.config/nvim)
-
-#### I'm Now Using [Lunarvim](lunarvim.org)
-
-[Lunar Vim Config](https://github.com/ItzNesbroDev/dotfiles/tree/main/.config/lvim)
 
 # Fish Shell Setup
 
