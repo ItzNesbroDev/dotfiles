@@ -1,3 +1,5 @@
-require "_options"
-require "_maps"
-require "_plugins"
+require "itznesbro.options"
+require "itznesbro.keymaps"
+require "itznesbro.plugins"
+require "itznesbro.autocommands"
+require "itznesbro.lsp"
