@@ -51,9 +51,6 @@ end
 -- Themes define colours, icons, font and wallpapers.
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
--- plugins
-local bling = require("bling")
-
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
 editor = os.getenv("EDITOR") or "lvim"
@@ -64,42 +61,33 @@ editor_cmd = terminal .. " -e " .. editor
 -- If you do not like this or do not have such a key,
 -- I suggest you to remap Mod4 to another key using xmodmap or other tools.
 -- However, you can use another modifier like Mod1, but it may interact with others.
-modkey = "Mod1"
+modkey = "Mod2"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
     awful.layout.suit.tile,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
-    awful.layout.suit.fair,
-    awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
-    awful.layout.suit.spiral.dwindle,
-    awful.layout.suit.max,
-    awful.layout.suit.max.fullscreen,
-    awful.layout.suit.magnifier,
-    awful.layout.suit.corner.nw,
-    bling.layout.deck
-    -- awful.layout.suit.corner.ne,
-    -- awful.layout.suit.corner.sw,
-    -- awful.layout.suit.corner.se,
 }
 -- }}}
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
 myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
+   { "Hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
+   { "Manual", terminal .. " -e man awesome" },
+   { "Edit config", editor_cmd .. " " .. awesome.conffile },
+   { "Restart", awesome.restart },
+   { "Quit", function() awesome.quit() end },
 }
 
-local menu_awesome = { "awesome", myawesomemenu, beautiful.awesome_icon }
-local menu_terminal = { "open terminal", terminal }
+local menu_awesome = { "Awesome", myawesomemenu, beautiful.awesome_icon }
+local menu_terminal = { "Open terminal", terminal }
+local menu_file_manager = { "Files", "nautilus" }
+
+beautiful.menu_height = 20
+beautiful.menu_width = 200
+beautiful.menu_bg_normal = "#374247"
+beautiful.menu_bg_focus = "#f7f4e0"
+beautiful.menu_fg_focus = "#374247"
 
 if has_fdo then
     mymainmenu = freedesktop.menu.build({
@@ -110,8 +98,8 @@ else
     mymainmenu = awful.menu({
         items = {
                   menu_awesome,
-                  { "Debian", debian.menu.Debian_menu.Debian },
                   menu_terminal,
+                  menu_file_manager,
                 }
     })
 end
@@ -215,28 +203,6 @@ awful.screen.connect_for_each_screen(function(s)
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
         buttons = tasklist_buttons
-    }
-
-    -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
-
-    -- Add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
-        },
     }
 end)
 -- }}}
@@ -513,10 +479,10 @@ awful.rules.rules = {
       }, properties = { floating = true }},
 
     -- Add titlebars to normal clients and dialogs
-    { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
-    },
-
+    -- { rule_any = {type = { "normal", "dialog" }
+    --   }, properties = { titlebars_enabled = true }
+    -- },
+    --
     -- Set Firefox to always map on the tag named "2" on screen 1.
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
@@ -590,7 +556,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- autorun
 autorun = true
 autorunApps = {
-  'fehbg'
+  'nitrogen --restore'
 }
 
 if autorun then
@@ -599,19 +565,5 @@ if autorun then
   end
 end
 
-bling.widget.window_switcher.enable {
-    type = "thumbnail", -- set to anything other than "thumbnail" to disable client previews
-    -- keybindings (the examples provided are also the default if kept unset)
-    hide_window_switcher_key = "Escape", -- The key on which to close the popup
-    minimize_key = "n",                  -- The key on which to minimize the selected client
-    unminimize_key = "N",                -- The key on which to unminimize all clients
-    kill_client_key = "q",               -- The key on which to close the selected client
-    cycle_key = "Tab",                   -- The key on which to cycle through all clients
-    previous_key = "Left",               -- The key on which to select the previous client
-    next_key = "Right",                  -- The key on which to select the next client
-    vim_previous_key = "h",              -- Alternative key on which to select the previous client
-    vim_next_key = "l",                  -- Alternative key on which to select the next client
-
-    cycleClientsByIdx = awful.client.focus.byidx,               -- The function to cycle the clients
-    filterClients = awful.widget.tasklist.filter.currenttags,   -- The function to filter the viewed clients
-}
+-- custom configs
+beautiful.useless_gap = 10
