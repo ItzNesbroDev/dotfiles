@@ -1,5 +1,5 @@
-require "itznesbro.options"
-require "itznesbro.keymaps"
-require "itznesbro.plugins"
-require "itznesbro.autocommands"
-require "itznesbro.lsp"
+require("itznesbro.plugins")
+require("itznesbro.options")
+require("itznesbro.keymaps")
+require("itznesbro.lsp")
+require("itznesbro.config")
