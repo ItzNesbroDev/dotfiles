@@ -57,3 +57,5 @@
 [user]
 	email = asnesbeer3@gmail.com
 	name = ItzNesbroDev
+[credential]
+	helper = store
